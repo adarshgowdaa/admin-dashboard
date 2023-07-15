@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import NavBar from "./NavBar";
 import SearchBar from "./SearchBar";
+import DataTable from "./DataTable";
 import Pagination from "./Pagination";
 function AdminDashboard() {
   const [data, setData] = useState([]);
@@ -8,8 +9,6 @@ function AdminDashboard() {
   const [currentPage, setCurrentPage] = useState(1);
   const [filteredData, setFilteredData] = useState([]);
   const [pageSize] = useState(50);
-
-
 
   // Fetch data
   useEffect(() => {
@@ -47,6 +46,11 @@ function AdminDashboard() {
     <div>
       <NavBar />
       <SearchBar searchTerm={searchTerm} onSearch={handleSearch} />
+      <DataTable
+        data={filteredData}
+        currentPage={currentPage}
+        pageSize={pageSize}
+      />
       <Pagination
         currentPage={currentPage}
         pageSize={pageSize}
