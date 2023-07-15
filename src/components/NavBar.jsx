@@ -3,7 +3,7 @@ import React from "react";
 function NavBar() {
   // Download
   const handleDownload = () => {
-    fetch("https://jsonplaceholder.typicode.com/comments") // TODO: Replace with the API endpoint
+    fetch(process.env.REACT_APP_API_URI) // TODO: Replace the API endpoint
       .then((response) => response.json())
       .then((data) => {
         let formattedData;
